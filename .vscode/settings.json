@@ -1,0 +1,5 @@
+{
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "files.exclude": { "**/dist": true },
+  "search.exclude": { "**/node_modules": true, "**/dist": true, "apps/mobile/android": true }
+}

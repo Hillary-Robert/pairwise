@@ -1,0 +1,13 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    { "label": "Install", "type": "shell", "command": "npm install", "problemMatcher": [] },
+    { "label": "Build all", "type": "shell", "command": "npm run build", "group": { "kind": "build", "isDefault": true }, "problemMatcher": ["$tsc"] },
+    { "label": "Test core", "type": "shell", "command": "npm test", "group": { "kind": "test", "isDefault": true }, "problemMatcher": [] },
+    { "label": "Build desktop", "type": "shell", "command": "npm run build -w @pairwise/desktop", "dependsOn": "Build all", "problemMatcher": ["$tsc"] },
+    { "label": "Package desktop installer", "type": "shell", "command": "npm run dist -w @pairwise/desktop", "dependsOn": "Build all", "problemMatcher": [] },
+    { "label": "Run phone app (USB phone)", "type": "shell", "command": "npx expo run:android", "options": { "cwd": "${workspaceFolder}/apps/mobile" }, "problemMatcher": [] },
+    { "label": "Build phone APK", "type": "shell", "command": "npm run build:apk", "options": { "cwd": "${workspaceFolder}/apps/mobile" }, "problemMatcher": [] },
+    { "label": "Run local relay (no TLS)", "type": "shell", "command": "node apps/relay/dist/main.js --port 9443 --insecure", "dependsOn": "Build all", "isBackground": true, "problemMatcher": [] }
+  ]
+}

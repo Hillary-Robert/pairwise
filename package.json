@@ -1,0 +1,13 @@
+{
+  "name": "pairwise",
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "build": "npm run build --workspaces --if-present",
+    "test": "npm test -w @pairwise/core",
+    "typecheck": "npm run typecheck -w @pairwise/core"
+  }
+}

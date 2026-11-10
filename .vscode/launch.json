@@ -1,0 +1,32 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Desktop app (Electron)",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceFolder}/apps/desktop",
+      "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/electron",
+      "windows": { "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/electron.cmd" },
+      "args": ["."],
+      "preLaunchTask": "Build desktop",
+      "outputCapture": "std"
+    },
+    {
+      "name": "Core tests",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceFolder}/packages/core",
+      "runtimeArgs": ["--test", "test/*.test.ts"]
+    },
+    {
+      "name": "CLI desktop (headless)",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/apps/cli/dist/main.js",
+      "args": ["desktop"],
+      "preLaunchTask": "Build all",
+      "console": "integratedTerminal"
+    }
+  ]
+}
