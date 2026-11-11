@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'">
+  <title>Pairwise</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="link" id="link" data-route="none">
+    <svg class="link-art" viewBox="0 0 320 72" aria-hidden="true">
+      <g class="device" transform="translate(28 14)">
+        <rect x="0" y="0" width="26" height="44" rx="6"/>
+        <line x1="9" y1="38" x2="17" y2="38"/>
+      </g>
+      <line class="wire" x1="72" y1="36" x2="236" y2="36"/>
+      <line class="wire-break" x1="148" y1="26" x2="160" y2="46"/>
+      <g class="device" transform="translate(252 16)">
+        <rect x="0" y="0" width="44" height="30" rx="4"/>
+        <line x1="-6" y1="38" x2="50" y2="38"/>
+      </g>
+    </svg>
+    <h1 id="headline">Starting…</h1>
+    <p id="subline" class="quiet"></p>
+  </header>
+
+  <main>
+    <section id="pair-panel" hidden>
+      <h2>Pair a phone</h2>
+      <p>Open Pairwise on your phone and scan this code. It works once and expires in <span id="pair-left">10 minutes</span>.</p>
+      <img id="qr" alt="Pairing QR code" width="240" height="240">
+      <p class="quiet">No camera? Choose <strong>Type a code</strong> on the phone and enter:</p>
+      <p id="code" class="code"></p>
+      <button id="pair-cancel" class="plain">Cancel pairing</button>
+    </section>
+
+    <section id="phones-section">
+      <div class="row">
+        <h2>Phones</h2>
+        <button id="pair-start" class="primary">Pair a phone</button>
+      </div>
+      <ul id="phones" class="list"></ul>
+      <p id="phones-empty" class="empty" hidden>No phone paired yet. Install Pairwise on your Android phone, then choose <strong>Pair a phone</strong>.</p>
+    </section>
+
+    <section id="send-section">
+      <h2>Send to phone</h2>
+      <div id="drop" class="drop" tabindex="0" role="button">Drop files here, or click to choose</div>
+      <ul id="transfers" class="list compact"></ul>
+    </section>
+
+    <section>
+      <h2>Settings</h2>
+      <label class="toggle">
+        <input type="checkbox" id="sync">
+        <span>Share clipboard automatically<br><small class="quiet">Copies on this computer appear on your phone. Passwords from password managers are never shared.</small></span>
+      </label>
+
+      <div class="field">
+        <span>Received files go to</span>
+        <div class="row">
+          <button id="downloads" class="link-button" title="Open folder"></button>
+          <button id="downloads-change" class="plain">Change…</button>
+        </div>
+      </div>
+
+      <form id="relay-form" class="field">
+        <label for="relay">Relay for when you're away from home</label>
+        <div class="row">
+          <input id="relay" type="text" placeholder="tls://relay.example.com:443" spellcheck="false" autocomplete="off">
+          <button type="submit" class="plain">Save</button>
+        </div>
+        <small id="relay-note" class="quiet">Optional. Run your own relay to stay connected on mobile data. It only passes encrypted data along.</small>
+      </form>
+    </section>
+  </main>
+  <script defer src="app.js"></script>
+</body>
+</html>

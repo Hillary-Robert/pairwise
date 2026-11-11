@@ -1,0 +1,33 @@
+{
+  "name": "@pairwise/desktop",
+  "productName": "Pairwise",
+  "version": "0.1.0",
+  "description": "Pairwise for Mac, Windows and Linux: clipboard, files and more with your Android phone",
+  "license": "MIT",
+  "type": "module",
+  "main": "dist/main.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json && tsc -p tsconfig.renderer.json && node scripts/copy-static.mjs",
+    "start": "npm run build && electron .",
+    "dist": "npm run build && electron-builder"
+  },
+  "dependencies": {
+    "@pairwise/core": "*",
+    "qrcode": "^1.5.4"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "@types/qrcode": "^1.5.5",
+    "electron": "^33.2.0",
+    "electron-builder": "^25.1.8",
+    "typescript": "^5.8.0"
+  },
+  "build": {
+    "appId": "app.pairwise.desktop",
+    "productName": "Pairwise",
+    "files": ["dist/**", "assets/**", "package.json"],
+    "mac": { "category": "public.app-category.utilities", "target": ["dmg"], "icon": "assets/icon.png" },
+    "win": { "target": ["nsis"], "icon": "assets/icon.png" },
+    "linux": { "target": ["AppImage", "deb"], "category": "Utility", "icon": "assets/icon.png" }
+  }
+}
