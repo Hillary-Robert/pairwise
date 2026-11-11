@@ -1,0 +1,14 @@
+{
+  "name": "@pairwise/relay",
+  "version": "0.1.0",
+  "description": "Self-hostable relay that lets Pairwise work when the phone and computer are on different networks",
+  "license": "MIT",
+  "type": "module",
+  "bin": { "pairwise-relay": "./dist/main.js" },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/main.js"
+  },
+  "dependencies": { "@pairwise/core": "*" },
+  "devDependencies": { "@types/node": "^22.10.0", "typescript": "^5.8.0" }
+}
