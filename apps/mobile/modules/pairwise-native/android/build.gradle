@@ -1,0 +1,21 @@
+plugins {
+  id 'com.android.library'
+  id 'expo-module-gradle-plugin'
+}
+
+group = 'app.pairwise.nativebridge'
+version = '0.1.0'
+
+android {
+  namespace "app.pairwise.nativebridge"
+  defaultConfig {
+    versionCode 1
+    versionName "0.1.0"
+  }
+}
+
+dependencies {
+  // QR scanning through Google Play services: no camera permission needed.
+  implementation "com.google.android.gms:play-services-code-scanner:16.1.0"
+  implementation "androidx.core:core-ktx:1.15.0"
+}
