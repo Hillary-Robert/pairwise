@@ -1,0 +1,31 @@
+{
+  "name": "@pairwise/mobile",
+  "version": "0.1.0",
+  "private": true,
+  "main": "index.ts",
+  "scripts": {
+    "start": "expo start --dev-client",
+    "android": "expo run:android",
+    "build:apk": "expo prebuild -p android && cd android && ./gradlew assembleRelease",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@craftzdog/react-native-buffer": "^6.1.0",
+    "@pairwise/core": "*",
+    "expo": "~56.0.0",
+    "expo-clipboard": "~56.0.4",
+    "expo-document-picker": "~56.0.4",
+    "expo-linking": "~56.0.19",
+    "expo-secure-store": "~56.0.4",
+    "expo-status-bar": "~56.0.4",
+    "react": "19.2.3",
+    "react-native": "0.85.3",
+    "react-native-nitro-modules": "*",
+    "react-native-quick-crypto": "^1.0.0",
+    "react-native-tcp-socket": "^6.3.0"
+  },
+  "devDependencies": {
+    "@types/react": "~19.2.14",
+    "typescript": "~6.0.3"
+  }
+}
